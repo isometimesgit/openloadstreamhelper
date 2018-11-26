@@ -1,0 +1,16 @@
+{
+    "manifest_version": 2,
+    "name": "Openload stream helper",
+    "description": "Converts openload.co download URL requests to directory URL ready for streaming.",
+    "version": "1",
+    "permissions": [
+        "https://openload.co/*",
+        "webRequest",
+        "webRequestBlocking"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    }
+}
