@@ -1,8 +1,10 @@
 chrome.webRequest.onBeforeRequest.addListener(
     (details) => {
-        const matches = details.url.match(/^https:\/\/openload\.co\/f\/([\w-]+)\/.+$/);
-        if (matches) {
-            return { redirectUrl: "https://openload.co/f/" + matches[1] + "/" };
+        const fid = details.url.match(/^https:\/\/openload\.co\/f\/([\w]+)\/.+$/)[1];
+        if (fid) {
+            const url = "https://openload.co/f/" + fid + "/";
+            navigator.clipboard.writeText(url);
+            return { redirectUrl: url };
         }
     }, {
         urls: [
